@@ -39,3 +39,8 @@ class Bloggs(models.Model):
 	def draft(self):
 		pass
 
+class Comment(models.Model):
+	title = models.CharField(max_length=1000)
+	bloggs = models.ForeignKey(Bloggs, related_name="comments")
+	owner = models.ForeignKey(blogger, related_name="comments")
+
